@@ -7,15 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol InitFlow: class {
+    func coordinatorToFinish()
+}
+
+class InitViewController: UIViewController {
 
     var flowCoordinator: InitFlow?
     
-    var uiViewController = UIInitViewController()
+    var uiLayout = UIInitViewController()
     
     override func loadView() {
-        self.view = uiViewController
-        self.uiViewController.touchButton = self
+        self.view = uiLayout
+        self.uiLayout.delegate = self
 
     }
     
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
 
 
 }
-extension ViewController: flowTouchButton{
+extension InitViewController: TouchButtonProtocol{
     func sendButton() {
         flowCoordinator?.coordinatorToFinish()
     }

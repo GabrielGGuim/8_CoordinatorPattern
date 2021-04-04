@@ -12,7 +12,7 @@ protocol Coordinator {
     func coordinate(coordinator: Coordinator)
 }
 
-extension Coordinator{
+extension Coordinator {
     func coordinate(coordinator: Coordinator){
         coordinator.start()
     }

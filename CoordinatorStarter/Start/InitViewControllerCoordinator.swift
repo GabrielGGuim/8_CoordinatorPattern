@@ -8,9 +8,7 @@
 import Foundation
 import UIKit
 
-protocol InitFlow: class {
-    func coordinatorToFinish()
-}
+
 
 class InitViewControllerCoordinator: Coordinator, InitFlow {
     
@@ -21,7 +19,7 @@ class InitViewControllerCoordinator: Coordinator, InitFlow {
     }
     
     func start() {
-        let initViewController = ViewController()
+        let initViewController = InitViewController()
         initViewController.flowCoordinator = self
         navigationController.pushViewController(initViewController, animated: true)
 

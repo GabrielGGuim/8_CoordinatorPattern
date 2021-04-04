@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-protocol flowTouchButton: class {
+protocol TouchButtonProtocol: class {
     
     func sendButton()
 }
 
 class UIInitViewController: UIView {
     
-    weak var touchButton: flowTouchButton?
+    weak var delegate: TouchButtonProtocol?
     
     let flowButton: UIButton = {
         let btn = UIButton()
@@ -54,6 +54,6 @@ class UIInitViewController: UIView {
     }
     
     @objc func send(_ button: UIButton){
-        self.touchButton?.sendButton()
+        self.delegate?.sendButton()
     }
 }
